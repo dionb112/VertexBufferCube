@@ -36,9 +36,9 @@ typedef struct
 {
 	float coordinate[3];
 	float color[3];
-} Vertex;
+} VertexBufferTime;
 
-Vertex vertex[6];
+VertexBufferTime vertex[6];
 GLubyte triangles[6];
 
 /* Variable to hold the VBO identifier */
@@ -52,30 +52,39 @@ void Game::initialize()
 	glewInit();
 
 	/* Vertices counter-clockwise winding */
+	MyVector3D vertex0{ 0.5f, 0.5f, -0.5f };
+	MyVector3D vertex1{ -0.5f, 0.5f, -0.5f };
+	MyVector3D vertex2{ -0.5f, -0.5f, -0.5f };
+	MyVector3D vertex3{ 0.5f, -0.5f, -0.5f };
+	MyVector3D vertex4{ 0.5f, 0.5f, 0.5f };
+	MyVector3D vertex5{ -0.5f, 0.5f, 0.5f };
+	MyVector3D vertex6{ -0.5f, -0.5f, 0.5f };
+	MyVector3D vertex7{ 0.5f, -0.5f, 0.5f };
 
-	vertex[0].coordinate[0] = -0.5f;
-	vertex[0].coordinate[1] = -0.5f;
-	vertex[0].coordinate[2] = 0.0f;
 
-	vertex[1].coordinate[0] = -0.5f;
-	vertex[1].coordinate[1] = 0.5f;
-	vertex[1].coordinate[2] = 0.0f;
+	vertex[0].coordinate[0] = vertex0.X();
+	vertex[0].coordinate[1] = vertex0.Y();
+	vertex[0].coordinate[2] = vertex0.Z();
 
-	vertex[2].coordinate[0] = 0.5f;
-	vertex[2].coordinate[1] = 0.5f;
-	vertex[2].coordinate[2] = 0.0f;
+	vertex[1].coordinate[0] = vertex1.X();
+	vertex[1].coordinate[1] = vertex1.Y();
+	vertex[1].coordinate[2] = vertex1.Z();
 
-	//vertex[3].coordinate[0] = 0.5f; 
-	//vertex[3].coordinate[1] = 0.5f;  
-	//vertex[3].coordinate[2] = 0.0f;
+	vertex[2].coordinate[0] = vertex2.X();
+	vertex[2].coordinate[1] = vertex2.Y();
+	vertex[2].coordinate[2] = vertex2.Z();
 
-	//vertex[4].coordinate[0] = 0.5f; 
-	//vertex[4].coordinate[1] = -0.5f;  
-	//vertex[4].coordinate[2] = 0.0f;
+	vertex[3].coordinate[0] = vertex[0].coordinate[0];
+	vertex[3].coordinate[1] = vertex[0].coordinate[1];
+	vertex[3].coordinate[2] = vertex[0].coordinate[2];
 
-	//vertex[5].coordinate[0] = -0.5f; 
-	//vertex[5].coordinate[1] = -0.5f;  
-	//vertex[5].coordinate[2] = 0.0f;
+	vertex[4].coordinate[0] = vertex[2].coordinate[0];
+	vertex[4].coordinate[1] = vertex[2].coordinate[1];
+	vertex[4].coordinate[2] = vertex[2].coordinate[2];
+
+	vertex[5].coordinate[0] = vertex3.X(); 
+	vertex[5].coordinate[1] = vertex3.Y();  
+	vertex[5].coordinate[2] = vertex3.Z();
 
 	vertex[0].color[0] = 0.1f;
 	vertex[0].color[1] = 1.0f;
@@ -148,9 +157,9 @@ void Game::update()
 	}
 
 	//Change vertex data
-	vertex[0].coordinate[0] += -0.0001f;
-	vertex[0].coordinate[1] += -0.0001f;
-	vertex[0].coordinate[2] += -0.0001f;
+	//vertex[0].coordinate[0] += -0.0001f;
+	//vertex[0].coordinate[1] += -0.0001f;
+	//vertex[0].coordinate[2] += -0.0001f;
 
 	cout << "Update up" << endl;
 }
